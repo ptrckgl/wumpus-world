@@ -1,0 +1,14 @@
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cell {
+  width: 100px;
+  border: 2px solid black;
+  background: white;
+  text-align: center;
+  line-height: 100px;
+  vertical-align: middle;
+}
