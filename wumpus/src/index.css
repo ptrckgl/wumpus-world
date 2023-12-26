@@ -4,11 +4,19 @@
   align-items: center;
 }
 
-.cell {
+.square {
   width: 100px;
+  height: 100px;
   border: 2px solid black;
   background: white;
   text-align: center;
   line-height: 100px;
   vertical-align: middle;
+}
+
+.pit {
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+  background-size: contain;
 }

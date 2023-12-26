@@ -1,16 +1,40 @@
 import './App.css';
 import { useState } from 'react';
+import imageWumpus from './assets/wumpus.png';
 
 const EMPTY = 0;
 const PIT = 1;
 const WUMPUS = 2;
 const GOLD = 3;
 
+const Empty = () => {
+  return <span>EMPTY</span>;
+};
+
+const Pit = () => {
+  return (
+    <div className='pit'>
+      <img className='pit' src={imageWumpus} alt='wumpus' />
+    </div>
+  );
+};
+
+const Wumpus = () => {
+  return <span>WUMPUS</span>;
+};
+
+const Gold = () => {
+  return <span>GOLD</span>;
+};
+
 const Square = ({ id, type }: { id: string; type: number }) => {
   return (
-    <span className='cell' id={id}>
-      {type}
-    </span>
+    <div className='square' id={id}>
+      {type === EMPTY && <Empty />}
+      {type === PIT && <Pit />}
+      {type === WUMPUS && <Wumpus />}
+      {type === GOLD && <Gold />}
+    </div>
   );
 };
 
@@ -24,7 +48,7 @@ const Board = ({ size }: { size: number }) => {
       {board.map((row: number[], i) => (
         <div id={`row-${i}`} className='row'>
           {row.map((cell, j) => (
-            <Square id={`col-${j}`} type={board[i][j]} />
+            <Square id={`col-${j}`} type={cell} />
           ))}
         </div>
       ))}
